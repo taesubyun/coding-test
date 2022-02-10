@@ -90,9 +90,51 @@
 
 // main(4);
 
+// function main(input) {
+//     const str = input;
+//     console.log(str.split('').reverse().join(''));
+// }
+
+// main('1234567');
+
 function main(input) {
-    const str = input;
-    console.log(str.split('').reverse().join(''));
+    let cnt = 0;
+    for (let i = 0; i < input; i++) {
+        cnt += check369(i);
+    }
+    console.log(cnt);
 }
 
-main('1234567');
+function check369(num) {
+    const str = num.toString();
+    let cnt = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === '3' || str[i] === '6' || str[i] === '9') {
+            cnt += 1;
+        }
+    }
+    return cnt;
+}
+
+main(10);
+
+function main(input) {
+    let cnt = 0;
+    for (let i = 0; i < input; i++) {
+        cnt += check369(i);
+    }
+    console.log(cnt);
+}
+
+function check369(num) {
+    const str = num.toString();
+    let cnt = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === '3' || str[i] === '6' || str[i] === '9') {
+            cnt += 1;
+        }
+    }
+    return cnt;
+}
+
+main(10);
