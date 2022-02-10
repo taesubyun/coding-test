@@ -56,10 +56,6 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-// ✅ 시험 준비 ✅ //
-
-// 📍 약수의 합
-
 // function main(input) {
 //     let output = 0;
 //     for (let i = 1; i <= input; i++) {
@@ -93,3 +89,10 @@
 // }
 
 // main(4);
+
+function main(input) {
+    const str = input;
+    console.log(str.split('').reverse().join(''));
+}
+
+main('1234567');
