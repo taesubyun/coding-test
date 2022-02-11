@@ -64,3 +64,27 @@ function solution2(arrLen, data, range) {
     }
     return sum;
 }
+
+/*
+최소값
+
+*/
+
+function findMin(arr) {
+    let min = Number.MAX_SAFE_INTEGER;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+}
+
+function findMax(arr) {
+    let max = Number.MIN_SAFE_INTEGER;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
