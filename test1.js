@@ -1,140 +1,66 @@
-// function main(output) {
-//     for (let i = 0; i < output; i++) {
-//         // 큰 반복문은 줄의 갯수,
-//         for (let j = 0; j < output - i; j++) {
-//             // 찍히는 별의 갯수
-//             process.stdout.write('*');
-//         }
-//         console.log();
-//     }
-// }
-// main(3);
+let arrLen = 0;
+let data;
+let range;
 
-// function main2(output) {
-//     for (let i = 0; i < output; i++) {
-//         // 큰 반복문은 줄의 갯수,
-//         for (let j = 0; j < i + 1; j++) {
-//             process.stdout.write('*');
-//         }
-//         console.log();
-//     }
-// }
-// main2(5);
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+});
 
-// function something(x) {
-//     for (let i = 0; i < x; i++) {
-//         for (let j = 0; j < i + 1; j++) {
-//             process.stdout.write('*');
-//         }
-//         console.log();
-//     }
-// }
-// something(4);
+rl.on('line', function (line) {
+    if (!arrLen) {
+        arrLen = +line;
+    } else if (!data) {
+        data = line.split(' ').map((el) => +el);
+    } else if (!range) {
+        range = line.split(' ').map((el) => +el);
+    } else {
+        rl.close();
+    }
+}).on('close', function () {
+    process.exit();
+});
 
-////////////////////////////////////////////////////////////////////////////////
+/*
 
-// function main(input) {
-//     cnt = 0;
-//     for (let i = 0; i < input; i++) {
-//         cnt += check369(i);
-//     }
-//     console.log(cnt);
-// }
-// main(10);
+5
+2 6 8 9 10
+1 5
 
-// function check369(num) {
-//     str = num.toString();
-//     cnt = 0;
+*/
 
-//     for (let i = 0; i < 1; i++) {
-//         if (str[i] == '3' || str[i] == '6' || str[i] == '9') {
-//             cnt += 1;
-//         }
-//     }
-//     return cnt;
-// }
+/*
 
-////////////////////////////////////////////////////////////////////////////////
 
-// function main(input) {
-//     let output = 0;
-//     for (let i = 1; i <= input; i++) {
-//         if (input % i === 0) {
-//             output += i;
-//         }
-//     }
-//     console.log(output);
-// }
+문제 이해
+- arrLen, data, range
 
-// main(10);
+1. 첫번째 인자로 5가 들어간다.
+-  
 
-// function main(input) {
-//     let sum = 0;
-//     for (let i = 0; i <= input; i++) {
-//         if (i % 3 === 0 || i % 5 === 0) {
-//             sum += i;
-//         }
-//     }
-//     console.log(sum);
-// }
+2. 5개의 자연수가 나열된다.
+- for(문)으로 5개의 자연수를 나열한다.
 
-// main(1000);
+3. n ~ m 까지의 합을 구한다.
+- for문으로 나열된 자연수들 중에서 조건문으로 n ~ m에 해당하는 자연수들을 더해준다.
 
-// function main(input) {
-//     let sum = 0;
-//     for (let i = 0; i <= input; i++) {
-//         sum += i;
-//     }
-//     console.log(sum);
-// }
+*/
 
-// main(4);
+function solution1(arrLen, data, range) {
+    let sum = 0;
+    for (let i = 0; i < data.length; i++) {
+        if (range[0] - 1 <= i && i <= range[1] - 1) {
+            sum += data[i];
+        }
+    }
+    return sum;
+}
 
-// function main(input) {
-//     const str = input;
-//     console.log(str.split('').reverse().join(''));
-// }
-
-// main('1234567');
-
-// function main(input) {
-//     let cnt = 0;
-//     for (let i = 0; i < input; i++) {
-//         cnt += check369(i);
-//     }
-//     console.log(cnt);
-// }
-
-// function check369(num) {
-//     const str = num.toString();
-//     let cnt = 0;
-//     for (let i = 0; i < str.length; i++) {
-//         if (str[i] === '3' || str[i] === '6' || str[i] === '9') {
-//             cnt += 1;
-//         }
-//     }
-//     return cnt;
-// }
-
-// main(10);
-
-// function main(input) {
-//     let cnt = 0;
-//     for (let i = 0; i < input; i++) {
-//         cnt += check369(i);
-//     }
-//     console.log(cnt);
-// }
-
-// function check369(num) {
-//     const str = num.toString();
-//     let cnt = 0;
-//     for (let i = 0; i < str.length; i++) {
-//         if (str[i] === '3' || str[i] === '6' || str[i] === '9') {
-//             cnt += 1;
-//         }
-//     }
-//     return cnt;
-// }
-
-// main(10);
+function solution2(arrLen, data, range) {
+    let sum = 0;
+    for (let i = range[0] - 1; i <= range[1] - 1; i++) {
+        sum += data[i];
+    }
+    return sum;
+}
