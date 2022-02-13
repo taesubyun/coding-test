@@ -23,31 +23,22 @@ rl.on('line', function (line) {
 });
 
 /*
-
 5
 2 6 8 9 10
 1 5
-
 */
 
 /*
-
-
 문제 이해
 - arrLen, data, range
-
 1. 첫번째 인자로 5가 들어간다.
--  
-
 2. 5개의 자연수가 나열된다.
 - for(문)으로 5개의 자연수를 나열한다.
-
 3. n ~ m 까지의 합을 구한다.
 - for문으로 나열된 자연수들 중에서 조건문으로 n ~ m에 해당하는 자연수들을 더해준다.
-
 */
 
-function solution1(arrLen, data, range) {
+function solution1(data, range) {
     let sum = 0;
     for (let i = 0; i < data.length; i++) {
         if (range[0] - 1 <= i && i <= range[1] - 1) {
@@ -65,11 +56,7 @@ function solution2(arrLen, data, range) {
     return sum;
 }
 
-/*
-최소값
-
-*/
-
+// 최소값
 function findMin(arr) {
     let min = Number.MAX_SAFE_INTEGER;
     for (let i = 0; i < arr.length; i++) {
@@ -79,6 +66,7 @@ function findMin(arr) {
     }
 }
 
+// 최대값
 function findMax(arr) {
     let max = Number.MIN_SAFE_INTEGER;
     for (let i = 0; i < arr.length; i++) {
